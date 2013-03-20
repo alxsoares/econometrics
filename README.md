@@ -1,4 +1,4 @@
-economectrics
+econometrics
 =============
 
 Academic work
