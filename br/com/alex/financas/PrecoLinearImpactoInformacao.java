@@ -208,7 +208,7 @@ public class PrecoLinearImpactoInformacao {
 	 * @param eps2
 	 * @return
 	 */
-	static Matrix autoregressivePrice(Matrix p1, Matrix q2, Matrix x2, Matrix eps2)
+	static Matrix autoRegressivePrice(Matrix p1, Matrix q2, Matrix x2, Matrix eps2)
 	{
 		Matrix thetaQ2 = q2.times(theta);
 		Matrix gammaX2 = x2.times(gamma);
@@ -259,7 +259,7 @@ public class PrecoLinearImpactoInformacao {
 			Matrix result = lu.solve(e);
 			//Contratos
 			Matrix q = result.getMatrix(0, dim - 1-i, 0, 0);
-			Matrix p = autoregressivePrice(buildOneElementVector(dim-i, P1), q, x, epsi);
+			Matrix p = autoRegressivePrice(buildOneElementVector(dim-i, P1), q, x, epsi);
 			double contracts = q.get(0, 0);			
 			P1 = p.get(0, 0);			
 			Q = Q - Math.round(contracts);	
